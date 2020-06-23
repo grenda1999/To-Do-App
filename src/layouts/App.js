@@ -1,9 +1,24 @@
 import React from "react";
-import "../styles/App.scss";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router } from "react-router-dom";
 
-function App() {
-  return <h1>Witaj świecie!</h1>;
-}
+import Navigation from "./Navigation";
+import Footer from "./Footer";
+import Page from "./Page";
+
+const App = () => {
+  return (
+    <Router>
+      <header>
+        <Navigation />
+      </header>
+      <main className="content">
+        <Page />
+      </main>
+      <footer>
+        <Footer />
+      </footer>
+    </Router>
+  );
+};
 
 export default App;

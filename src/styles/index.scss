@@ -1,1 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+@import "./partials/variables.scss";
+
+body {
+  background-color: $backgroundColor !important;
+  font-family: "Lato", sans-serif;
+}
+
+@import "./partials/pages/App.scss";
+@import "./partials/pages/Navigation.scss";
+@import "./partials/pages/Sidebar.scss";
+@import "./fontello/css/fontello";

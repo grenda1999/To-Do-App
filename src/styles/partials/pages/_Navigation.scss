@@ -1,0 +1,46 @@
+nav.main-nav {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  border-bottom: 1px solid $inactiveColor;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  & div.positioning-assistant {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    position: relative;
+  }
+  & div.underline {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    min-width: $navLinksWidth;
+    height: 1px;
+    background-color: $activeColor;
+    border-radius: 1px;
+  }
+  & a {
+    font-size: 18px;
+    text-transform: capitalize;
+    color: $inactiveColor;
+    text-decoration: none;
+    display: block;
+    line-height: $navLinksHeight;
+    height: $navLinksHeight;
+    min-width: $navLinksWidth;
+    border-radius: 10px;
+    transition: color 0.3s, background-color 0.3s;
+    background-color: $backgroundColor;
+    &.active {
+      color: $activeColor;
+      background-color: $backgroundColor !important;
+    }
+
+    &:hover {
+      background-color: darken($color: $backgroundColor, $amount: 2.5%);
+    }
+  }
+}
