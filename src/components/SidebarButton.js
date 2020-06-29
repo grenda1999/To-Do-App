@@ -1,6 +1,6 @@
 import React from "react";
 
-const SideNavButton = React.forwardRef((props, ref) => {
+const SidebarButton = React.forwardRef((props, ref) => {
   return (
     <div className="side-nav-button" onClick={props.click}>
       <span className="hamburger-line"></span>
@@ -22,4 +22,4 @@ const SideNavButton = React.forwardRef((props, ref) => {
   );
 });
 
-export default SideNavButton;
+export default SidebarButton;

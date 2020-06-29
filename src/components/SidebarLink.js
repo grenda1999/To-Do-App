@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const SideNavLink = React.forwardRef((props, ref) => {
+const SidebarLink = React.forwardRef((props, ref) => {
   return (
     <NavLink
       to={props.path}
@@ -19,4 +19,4 @@ const SideNavLink = React.forwardRef((props, ref) => {
   );
 });
 
-export default SideNavLink;
+export default SidebarLink;
