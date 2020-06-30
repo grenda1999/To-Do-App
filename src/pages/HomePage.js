@@ -6,54 +6,55 @@ import ErrorPage from "./ErrorPage";
 import Sidebar from "../layouts/Sidebar";
 
 const HomePage = ({ match }) => {
-  function handleResize(sidebarCnt, sBarLinks, sBarBtnBorders, sqrCntFlag) {
+  function handleResize(sidebarCnt, sBarLinks, sBarBtnBorders, sqrCnt) {
     const sBarCntMount = sidebarCnt.current;
     const linksMount = sBarLinks.current;
     const btnBordersMount = sBarBtnBorders.current;
     const squaresContainers = linksMount.map((link) => link.firstChild);
-    let resizeEndTimer = null;
 
-    if (window.location.pathname.startsWith("/home")) {
-      const windowWidth = window.innerWidth;
-      if (
-        sBarCntMount.classList.contains("side-nav-width-animation") &&
-        windowWidth <= 768
-      ) {
-        sBarCntMount.classList.remove("side-nav-width-animation");
-        btnBordersMount.forEach((border) => {
-          border.classList.toggle("button-border-rotate-animation");
-        });
-        linksMount.forEach((sBarLink) => {
-          sBarLink.lastChild.style.display = "none";
-        });
-      } else if (
-        sBarCntMount.classList.contains("side-nav-height-animation") &&
-        windowWidth > 768
-      ) {
-        sBarCntMount.classList.remove("side-nav-height-animation");
-        btnBordersMount.forEach((border) => {
-          border.classList.toggle("button-border-rotate-animation");
-        });
-        linksMount.forEach((sBarLink) => {
-          sBarLink.lastChild.style.display = "none";
-        });
-      }
-      sBarCntMount.classList.remove("activated-width");
-      sBarCntMount.classList.remove("activated-height");
-      if (sqrCntFlag.flag) {
-        squaresContainers.forEach((squaresContainer) => {
-          squaresContainer.style.display = "none";
-        });
-        sqrCntFlag.flag = false;
-      }
-      resizeEndTimer = setTimeout(() => {
-        squaresContainers.forEach((squaresContainer) => {
-          squaresContainer.style.display = "flex";
-        });
-        clearTimeout(resizeEndTimer);
-        sqrCntFlag.flag = true;
-      }, 100);
+    const windowWidth = window.innerWidth;
+    if (
+      sBarCntMount.classList.contains("side-nav-width-animation") &&
+      windowWidth <= 768
+    ) {
+      sBarCntMount.classList.remove("side-nav-width-animation");
+      btnBordersMount.forEach((border) => {
+        border.classList.toggle("button-border-rotate-animation");
+      });
+      linksMount.forEach((sBarLink) => {
+        const linkText = sBarLink.lastChild.lastChild;
+        linkText.classList.remove("link-text-animation-desktop");
+        // linkText.style.display = "none";
+      });
+    } else if (
+      windowWidth > 768 &&
+      sBarCntMount.classList.contains("side-nav-height-animation")
+    ) {
+      sBarCntMount.classList.remove("side-nav-height-animation");
+      btnBordersMount.forEach((border) => {
+        border.classList.toggle("button-border-rotate-animation");
+      });
+      linksMount.forEach((sBarLink) => {
+        const linkText = sBarLink.lastChild.lastChild;
+        linkText.classList.remove("link-text-animation-mobile");
+        // linkText.style.display = "none";
+      });
     }
+    sBarCntMount.classList.remove("activated-width");
+    sBarCntMount.classList.remove("activated-height");
+    if (sqrCnt.flag) {
+      squaresContainers.forEach((squaresContainer) => {
+        squaresContainer.style.display = "none";
+      });
+      sqrCnt.flag = false;
+    }
+    clearTimeout(sqrCnt.timer);
+    sqrCnt.timer = setTimeout(() => {
+      squaresContainers.forEach((squaresContainer) => {
+        squaresContainer.style.display = "flex";
+      });
+      sqrCnt.flag = true;
+    }, 100);
   }
 
   return (

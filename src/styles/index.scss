@@ -5,6 +5,7 @@
 }
 
 @import "./partials/variables.scss";
+@import "./partials/mixins.scss";
 
 body {
   background-color: $backgroundColor !important;

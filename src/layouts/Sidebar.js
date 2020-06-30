@@ -12,7 +12,7 @@ const linksSettings = [
   { path: "/4", icon: "icon-link", text: "Empty" },
 ];
 
-const sqrsCntsFlag = { flag: true };
+const sqrsCnt = { flag: true, timer: null };
 
 const Sidebar = (props) => {
   const sBarContainer = useRef(null);
@@ -34,41 +34,18 @@ const Sidebar = (props) => {
     });
 
     sBarLinks.current.forEach((sBarLink) => {
-      const displayValue = !sBarLink.lastChild.style.display
-        ? "none"
-        : sBarLink.lastChild.style.display;
-      sBarLink.lastChild.style.display =
-        displayValue === "none" ? "initial" : "none";
+      const container = sBarLink.lastChild;
+      const textElement = container.lastChild;
       if (windowWidth > 768) {
-        sBarLink.lastChild.animate(
-          [
-            { left: `${-15}px`, opacity: 0 },
-            { left: `${0}px`, opacity: 1 },
-          ],
-          {
-            duration: 400,
-            easing: "ease-in",
-            fill: "forwards",
-          }
-        );
+        textElement.classList.toggle("link-text-animation-desktop");
       } else {
-        sBarLink.lastChild.animate(
-          [
-            { top: `${-15}px`, opacity: 0 },
-            { top: `${0}px`, opacity: 1 },
-          ],
-          {
-            duration: 400,
-            easing: "ease-in",
-            fill: "forwards",
-          }
-        );
+        textElement.classList.toggle("link-text-animation-mobile");
       }
     });
   }
 
   const memoWindowResizeWrapper = useCallback(() => {
-    props.resize(sBarContainer, sBarLinks, sBarButtonBorders, sqrsCntsFlag);
+    props.resize(sBarContainer, sBarLinks, sBarButtonBorders, sqrsCnt);
   }, [props]);
 
   useEffect(() => {

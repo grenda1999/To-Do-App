@@ -1,18 +1,11 @@
 div.side-nav {
   position: fixed;
-  background-color: darken($color: $backgroundColor, $amount: 2.5%);
-  height: 500px;
-  width: 50px;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
+  background-color: darken($backgroundColor, 2.5%);
   overflow: hidden;
   display: flex;
-  flex-direction: column;
-  // transition: width 1s;
+  border-top-right-radius: 15px;
   & div.beat-animation-assistant {
-    background-color: darken($color: $backgroundColor, $amount: 5%);
-    width: 100%;
-    height: 50px;
+    background-color: darken($backgroundColor, 5%);
     display: flex;
     justify-content: flex-end;
 
@@ -75,85 +68,46 @@ div.side-nav {
   // *************** Side navigation links section ***************
   & div.side-nav-links-assistant {
     display: flex;
-    flex-direction: column;
-    height: 100%;
-    margin: 10px 0;
-    & a.side-nav-link:last-child {
-      margin-top: auto;
-    }
     & a.side-nav-link {
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 50px;
-      width: 100%;
-      padding: 5px 0;
       box-sizing: initial;
       color: $inactiveColor;
       transition: color 0.3s;
       text-decoration: none;
-      & div.square-container {
+      & div.squares-container {
         position: absolute;
-        top: 9px;
-        left: 0;
         display: flex;
-        flex-direction: column;
         & span.small-square {
           display: block;
           border-radius: 7px;
-          width: 0;
-          height: (42px/3);
-          transition: width 0.1s;
         }
         @each $color, $nth in $sideNavDetails {
           & span:nth-child(#{$nth}) {
             background-color: #{$color};
-            transition-delay: #{($nth/20) * 1s};
           }
         }
       }
-      & span.side-nav-text {
+      & div.text-assistant {
         position: relative;
-        left: -15px;
-        opacity: 0;
-        font-size: 18px;
-        line-height: 20px;
-        padding-left: 10px;
-        display: none;
+        display: flex;
+        & span.side-nav-text {
+          position: absolute;
+          opacity: 0;
+          font-size: 18px;
+        }
       }
       &:hover {
         color: $activeColor;
-        & div.square-container span.small-square {
-          width: 4px;
-        }
       }
       &.active {
         color: $activeColor;
-        & div.square-container span.small-square {
-          width: 0;
-        }
       }
     }
   }
   // *************** End side navigation links section ***************
-}
-
-// *************** Animations section ***************
-.side-nav-width-animation {
-  width: 175px !important;
-}
-
-.side-nav-height-animation {
-  height: 175px !important;
-}
-
-.activated-height {
-  transition: height 0.45s;
-}
-
-.activated-width {
-  transition: width 0.45s;
 }
 
 .button-border-rotate-animation {
@@ -176,7 +130,6 @@ div.side-nav {
   25% {
     transform: scale(1.15);
   }
-
   35% {
     transform: scale(1.15);
   }
@@ -193,48 +146,49 @@ div.side-nav {
     transform: scale(1);
   }
 }
-// *************** End animations section ***************
 
-// *************** Media section ***************
-@media (max-width: 768px) {
+@media (min-width: 769px) {
+  .activated-width {
+    transition: width 0.6s;
+  }
+  .side-nav-width-animation {
+    width: 140px !important;
+  }
+  .link-text-animation-desktop {
+    opacity: 1 !important;
+    left: 45px !important;
+  }
+
   div.side-nav {
-    bottom: 0;
-    width: 100vw;
-    height: 50px;
-    flex-direction: row;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 0;
-    border-top-left-radius: 15px;
-    // transition: height 1s;
+    height: 500px;
+    width: 50px;
+    border-bottom-right-radius: 15px;
+    flex-direction: column;
     & div.beat-animation-assistant {
-      width: 50px;
-      height: 100%;
-    }
-    & div.side-nav-links-assistant {
-      flex-direction: row;
       width: 100%;
-      margin: 0 0;
+      height: 50px;
+    }
+
+    // *************** Side navigation links section ***************
+    & div.side-nav-links-assistant {
+      flex-direction: column;
+      height: 100%;
+      margin: 10px 0;
       & a.side-nav-link:last-child {
-        margin-top: 0;
+        margin-top: auto;
       }
       & a.side-nav-link {
-        height: 100%;
-        width: initial;
-        flex-grow: 1;
-        padding: 0 5px;
-        flex-direction: column;
-        & div.square-container {
-          top: initial;
-          bottom: 0;
-          left: 50%;
-          transform: translateX(-50%);
-          flex-direction: row;
+        height: 50px;
+        width: 100%;
+        padding: 5px 0;
+        & div.squares-container {
+          top: 9px;
+          left: 0;
+          flex-direction: column;
           & span.small-square {
-            height: 0;
-            width: (42px/3);
-            transition: height 0.1s;
-            transform: rotate(180deg);
-            transform-origin: top;
+            width: 0;
+            height: (42px/3);
+            transition: width $sqrsTrnDrtn;
           }
           @each $color, $nth in $sideNavDetails {
             & span:nth-child(#{$nth}) {
@@ -242,25 +196,106 @@ div.side-nav {
             }
           }
         }
-        & span.side-nav-text {
-          left: 0;
-          top: -15px;
-          padding-left: 0;
-          padding-top: 10px;
+        & div.text-assistant {
+          width: 90%;
+          height: 100%;
+          align-items: center;
+          & span.icon-container {
+            text-align: center;
+            width: 50px;
+          }
+          & span.side-nav-text {
+            left: 40px;
+            transition: opacity 0.3s ease-in, left 0.3s ease-in;
+          }
         }
         &:hover {
-          & div.square-container span.small-square {
-            height: 4px;
-            width: (42px/3);
+          & div.squares-container span.small-square {
+            width: 4px;
           }
         }
         &.active {
-          & div.square-container span.small-square {
+          & div.squares-container span.small-square {
+            width: 0;
+          }
+        }
+      }
+    }
+    // *************** End side navigation links section ***************
+  }
+}
+
+@media (max-width: 768px) {
+  .activated-height {
+    transition: height 0.6s;
+  }
+  .side-nav-height-animation {
+    height: 100px !important;
+  }
+  .link-text-animation-mobile {
+    opacity: 1 !important;
+    top: 45px !important;
+  }
+
+  div.side-nav {
+    width: 100vw;
+    height: 50px;
+    border-top-left-radius: 15px;
+    bottom: 0;
+    & div.beat-animation-assistant {
+      width: 50px;
+      height: 100%;
+    }
+    // *************** Side navigation links section ***************
+    & div.side-nav-links-assistant {
+      width: 100%;
+      & a.side-nav-link {
+        height: 100%;
+        width: 25%;
+        flex-direction: column;
+        & div.squares-container {
+          left: 50%;
+          transform: translateX(-50%);
+          bottom: 0;
+          & span.small-square {
+            height: 0;
+            width: (42px/3);
+            transform: rotate(180deg);
+            transform-origin: top;
+            transition: height $sqrsTrnDrtn;
+          }
+          @each $color, $nth in $sideNavDetails {
+            & span:nth-child(#{$nth}) {
+              transition-delay: #{($nth/20) * 1s};
+            }
+          }
+        }
+        & div.text-assistant {
+          width: 100%;
+          height: 90%;
+          justify-content: center;
+          & span.icon-container {
+            height: 50px;
+            display: flex;
+            align-items: center;
+          }
+          & span.side-nav-text {
+            top: 40px;
+            transition: opacity 0.3s ease-in, top 0.3s ease-in;
+          }
+        }
+        &:hover {
+          & div.squares-container span.small-square {
+            height: 4px;
+          }
+        }
+        &.active {
+          & div.squares-container span.small-square {
             height: 0;
           }
         }
       }
     }
+    // *************** End side navigation links section ***************
   }
 }
-// *************** End media section ***************

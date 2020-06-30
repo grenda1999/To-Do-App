@@ -3,10 +3,7 @@ nav.main-nav {
   justify-content: center;
   flex-direction: row;
   border-bottom: 1px solid $inactiveColor;
-  user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  -moz-user-select: none;
+  @include prefix(user-select, none, webkit ms moz);
   & div.positioning-assistant {
     display: flex;
     flex-direction: row;
@@ -40,7 +37,7 @@ nav.main-nav {
     }
 
     &:hover {
-      background-color: darken($color: $backgroundColor, $amount: 2.5%);
+      background-color: darken($backgroundColor, 2.5%);
     }
   }
 }
