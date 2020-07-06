@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useRef } from "react";
 
 import SidebarLink from "../components/SidebarLink";
 import SidebarButton from "../components/SidebarButton";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 
 const linksSettings = [
   { path: "/board", icon: "icon-link", text: "Empty" },
@@ -21,7 +21,7 @@ const Sidebar = (props) => {
 
   function handleClickAnimation() {
     const windowWidth = window.innerWidth;
-    if (windowWidth > 768) {
+    if (windowWidth > 767) {
       sBarContainer.current.classList.add("activated-width");
       sBarContainer.current.classList.toggle("side-nav-width-animation");
     } else {
@@ -36,7 +36,7 @@ const Sidebar = (props) => {
     sBarLinks.current.forEach((sBarLink) => {
       const container = sBarLink.lastChild;
       const textElement = container.lastChild;
-      if (windowWidth > 768) {
+      if (windowWidth > 767) {
         textElement.classList.toggle("link-text-animation-desktop");
       } else {
         textElement.classList.toggle("link-text-animation-mobile");

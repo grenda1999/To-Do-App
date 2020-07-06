@@ -7,6 +7,16 @@
 <font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
 <missing-glyph horiz-adv-x="1000" />
 <glyph glyph-name="link" unicode="&#xe800;" d="M294 116q14 14 34 14t36-14q32-34 0-70l-42-40q-56-56-132-56-78 0-134 56t-56 132q0 78 56 134l148 148q70 68 144 77t128-43q16-16 16-36t-16-36q-36-32-70 0-50 48-132-34l-148-146q-26-26-26-64t26-62q26-26 63-26t63 26z m450 574q56-56 56-132 0-78-56-134l-158-158q-74-72-150-72-62 0-112 50-14 14-14 34t14 36q14 14 35 14t35-14q50-48 122 24l158 156q28 28 28 64 0 38-28 62-24 26-56 31t-60-21l-50-50q-16-14-36-14t-34 14q-34 34 0 70l50 50q54 54 127 51t129-61z" horiz-adv-x="800" />
+
+<glyph glyph-name="plus" unicode="&#xe801;" d="M550 400q30 0 30-50t-30-50l-210 0 0-210q0-30-50-30t-50 30l0 210-210 0q-30 0-30 50t30 50l210 0 0 210q0 30 50 30t50-30l0-210 210 0z" horiz-adv-x="580" />
+
+<glyph glyph-name="dot-3" unicode="&#xe802;" d="M110 460q46 0 78-32t32-78q0-44-32-77t-78-33-78 33-32 77q0 46 32 78t78 32z m350 0q46 0 78-32t32-78q0-44-33-77t-77-33-77 33-33 77q0 46 32 78t78 32z m350 0q46 0 78-32t32-78q0-44-32-77t-78-33-78 33-32 77q0 46 32 78t78 32z" horiz-adv-x="920" />
+
+<glyph glyph-name="up-micro" unicode="&#xe803;" d="M471 231h-471l235 236z" horiz-adv-x="471" />
+
+<glyph glyph-name="down-micro" unicode="&#xe804;" d="M235 231l-235 236h471z" horiz-adv-x="471" />
+
+<glyph glyph-name="sticky-note-o" unicode="&#xf24a;" d="M781 136h-138v-139q16 6 23 13l103 103q7 7 12 23z m-156 71h161v500h-715v-714h500v161q0 22 16 38t38 15z m232 518v-571q0-23-11-49t-27-43l-102-103q-16-15-43-26t-49-12h-571q-23 0-38 16t-16 38v750q0 22 16 38t38 16h750q22 0 38-16t15-38z" horiz-adv-x="857.1" />
 </font>
 </defs>
 </svg>

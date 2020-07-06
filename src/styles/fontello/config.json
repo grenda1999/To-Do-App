@@ -11,6 +11,36 @@
       "css": "link",
       "code": 59392,
       "src": "entypo"
+    },
+    {
+      "uid": "70370693ada58ef0a60fa0984fe8d52a",
+      "css": "plus",
+      "code": 59393,
+      "src": "entypo"
+    },
+    {
+      "uid": "d10920db2e79c997c5e783279291970c",
+      "css": "dot-3",
+      "code": 59394,
+      "src": "entypo"
+    },
+    {
+      "uid": "b9ca73befd583b2197a56a68045c9c0c",
+      "css": "sticky-note-o",
+      "code": 62026,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "fbed8311a5af2a8e5599246d9939a475",
+      "css": "up-micro",
+      "code": 59395,
+      "src": "websymbols"
+    },
+    {
+      "uid": "35674c31693db324f2fd6a48f1079263",
+      "css": "down-micro",
+      "code": 59396,
+      "src": "websymbols"
     }
   ]
 }

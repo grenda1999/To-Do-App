@@ -9,10 +9,15 @@
 
 body {
   background-color: $backgroundColor !important;
-  font-family: "Lato", sans-serif;
+  font-family: "Lato", sans-serif !important;
 }
 
-@import "./partials/pages/App.scss";
-@import "./partials/pages/Navigation.scss";
-@import "./partials/pages/Sidebar.scss";
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+@import "./partials/App.scss";
+@import "./partials/layouts/Navigation.scss";
+@import "./partials/layouts/Sidebar.scss";
+@import "./partials/pages/HomePage.scss";
+@import "./partials/subpages/SamplePage.scss";
+
 @import "./fontello/css/fontello";
