@@ -1,3 +1,5 @@
+## !!! The project was put on hold due to eagerness to learn node.js, mongoDB, and create application which is useful. It will be continued with the use of methodology BEM (It is connected with code refactoring.) and back-end knowledge. !!!
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
